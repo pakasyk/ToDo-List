@@ -36,9 +36,12 @@ main .form {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin: 10% auto 0 auto;
-  padding-bottom: 10%;
-  border-bottom: 1px solid #343a40;
+  margin: 0 auto 0 auto;
+  margin-bottom: 5%;
+}
+
+main hr {
+  border: 0.5px solid #343a40;
 }
 
 main h1 {
@@ -53,6 +56,28 @@ main h6 {
   margin-top: 5%;
   letter-spacing: 1px;
   font-size: 16px;
+  margin-bottom: 6%;
+}
+
+main .filter {
+  display: block;
+  float: right;
+  color: #2e3238;
+  font-size: 12px;
+  margin-bottom: 2px;
+}
+
+main .filter img {
+  width: 12px;
+  height: 12px;
+}
+
+main .filter span {
+  cursor: pointer;
+}
+
+main .filter span:hover {
+  color: #252930;
 }
 
 .addField {
@@ -74,7 +99,7 @@ button {
 }
 
 ul {
-  margin-top: 10%;
+  margin-top: 6%;
 }
 
 ul li {
@@ -87,25 +112,41 @@ ul li {
   font-family: 'Montserrat', sans-serif;
 }
 
-ul li input {
+ul li:before {
+  content: "";
+  display: block;
   float: left;
+  width: 14px;
+  height: 14px;
+  background-image: url(../img/pen-solid.svg);
+  background-repeat: no-repeat;
+  background-size: 14px 14px;
+  margin-left: -20px;
+  opacity: 0;
+  -webkit-transition: opacity .3s ease;
+  transition: opacity .3s ease;
 }
 
-ul li input[type="checkbox"] {
-  background-color: #484f59;
-  border: 1px solid #2e3238;
-  line-height: 16px;
-  font-size: 14px;
+ul li:hover:before {
+  opacity: .5;
+}
+
+ul li input {
+  float: left;
 }
 
 ul li span {
   margin-left: 20px;
   float: left;
+  width: 80%;
+}
+
+ul li span:hover ~ ul li span:before {
+  background-color: red;
 }
 
 ul li span.taskRemove {
   float: right;
-  fill: #484f59;
   background: url(../img/trash-solid.svg);
   background-size: 16px 16px;
   width: 16px;
@@ -127,7 +168,7 @@ ul li .editField {
   line-height: 14px;
   height: 16px;
   padding: 1px 0;
-  width: 90%;
+  width: 80%;
 }
 
 ul li:after {
@@ -142,12 +183,12 @@ ul li:after {
             transform: rotate(0deg);
   }
   25% {
-    -webkit-transform: rotate(5deg);
-            transform: rotate(5deg);
+    -webkit-transform: rotate(10deg);
+            transform: rotate(10deg);
   }
   75% {
-    -webkit-transform: rotate(-5deg);
-            transform: rotate(-5deg);
+    -webkit-transform: rotate(-10deg);
+            transform: rotate(-10deg);
   }
   100% {
     -webkit-transform: rotate(0deg);
@@ -161,12 +202,12 @@ ul li:after {
             transform: rotate(0deg);
   }
   25% {
-    -webkit-transform: rotate(5deg);
-            transform: rotate(5deg);
+    -webkit-transform: rotate(10deg);
+            transform: rotate(10deg);
   }
   75% {
-    -webkit-transform: rotate(-5deg);
-            transform: rotate(-5deg);
+    -webkit-transform: rotate(-10deg);
+            transform: rotate(-10deg);
   }
   100% {
     -webkit-transform: rotate(0deg);
@@ -174,11 +215,10 @@ ul li:after {
   }
 }
 
-/* The container */
 .checkContainer {
   display: block;
   position: relative;
-  padding-left: 35px;
+  padding-left: 14px;
   margin-bottom: 2px;
   cursor: pointer;
   font-size: 22px;
@@ -188,7 +228,6 @@ ul li:after {
   user-select: none;
 }
 
-/* Hide the browser's default checkbox */
 .checkContainer input {
   position: absolute;
   opacity: 0;
@@ -197,47 +236,42 @@ ul li:after {
   width: 0;
 }
 
-/* Create a custom checkbox */
 .checkmark {
   position: absolute;
   top: 0;
   left: 0;
   height: 14px;
   width: 14px;
-  background-color: #eee;
+  background-color: #484f59;
+  border: 1px solid #2e3238;
   margin-left: 0;
 }
 
-/* On mouse-over, add a grey background color */
 .checkContainer:hover input ~ .checkmark {
-  background-color: #ccc;
+  background-color: #343a40;
 }
 
-/* When the checkbox is checked, add a blue background */
 .checkContainer input:checked ~ .checkmark {
-  background-color: #2196F3;
+  background-color: #343a40;
 }
 
-/* Create the checkmark/indicator (hidden when not checked) */
 .checkmark:after {
   content: "";
   position: absolute;
   display: none;
 }
 
-/* Show the checkmark when checked */
 .checkContainer input:checked ~ .checkmark:after {
   display: block;
 }
 
-/* Style the checkmark/indicator */
 .checkContainer .checkmark:after {
-  left: 3px;
-  top: 2px;
+  left: 4px;
+  top: 0px;
   width: 2px;
-  height: 4px;
-  border: solid white;
-  border-width: 0 3px 3px 0;
+  height: 7px;
+  border: solid #a3acb9;
+  border-width: 0 2px 2px 0;
   -webkit-transform: rotate(45deg);
   transform: rotate(45deg);
 }

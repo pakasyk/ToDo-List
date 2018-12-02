@@ -14,11 +14,20 @@
         <h1>ToDo List</h1>
         <h6></h6>
         
+        
         <div class="form">
             <input class="addField" type="text" placeholder="Add a task..." autofocus>
             <button class="submitButton" onClick="addTask()">Submit</button>
            
         </div>
+        <div class="filter">
+                <span class="filterPending" onClick="myFilter('pending')">Pending</span>
+                <span class="filterDone" onClick="myFilter('done')">Finished</span>
+                <span class="filterAll" onClick="myFilter('all')">All</span>
+                <img src="./img/filter-solid.svg">
+            </div>
+            <div style="clear:both"></div>
+            <hr>
         <ul></ul>
         
 
