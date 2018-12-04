@@ -90,6 +90,8 @@ let editFunction = (element) => {
 }  
 
 let checkItem = (element) => {
+  let checked = "";
+  document.querySelector('ul').innerHTML = "";
   
   if(element.parentNode.querySelector('input[type=checkbox]').hasAttribute("checked")){
     element.parentNode.querySelector('input[type=checkbox]').removeAttribute("checked");
@@ -112,6 +114,23 @@ let checkItem = (element) => {
         break;
       }
     }
+  }
+  for (let i = 0; i < tasks.length; i++){
+    checked = "";
+    if (tasks[i][1] == true) {
+      checked = "checked";
+    }
+      document.querySelector('ul').innerHTML += `
+      <li>
+        <label class="checkContainer">
+          <input type="checkbox" ${checked}>
+          <span class="checkmark" onClick="checkItem(this)"></span>
+        </label>         
+        <span class="taskText" onClick="editItem(this)">${tasks[i][0]}</span>
+        <input class="editField" type="text" value="" style="display: none;">
+        <span class="taskRemove" onClick="deleteItem(this)"></span>
+      </li>`;      
+    
   }
   document.querySelector('.addField').focus();
 }
